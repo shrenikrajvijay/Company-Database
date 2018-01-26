@@ -1,0 +1,43 @@
+<div class="panel panel-default" ng-controller="CompanyListCtrl">
+    <!--header-->
+    <div class="panel-heading">
+        <h2>Companies
+            <div class="search-box">
+                <input class="form-control" placeholder="Search.." ng-model="search" type="text" />
+            </div>
+        </h2>
+    </div>
+    <!--header-end-->
+
+    <!--body-->
+    <div class="panel-body">
+
+        <div ng-repeat="company in companies | filter:search">
+
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-caret" ng-click="showCompany = !showCompany">
+                    <h2>{{company.name}}
+                        <div class="btn-group pull-right">
+                            <button type="button" ng-click="editCompany(company._id)" class="btn btn-default">Edit</button>
+                            <span class="caret" ng-class="showCompany ? 'caret-up' : ''"></span>
+                        </div>
+                    </h2>
+                </div>
+                <div class="panel-body" ng-if-start="showCompany">
+                    <div>Address: {{company.address}}</div>
+                    <div>Revenue: {{company.revenue}}</div>
+                    <div>Phone: {{company.phone}}</div>
+                </div>
+                <div ng-if-end class="panel-heading"> <h5> <a ng-href="#!companies/{{company._id}}/people">People Who work here </a></h5> </div>
+            </div>
+
+
+        </div>
+
+        <div ng-if="companies.length == 0">
+            There are no companies added yet.
+        </div>
+
+    </div>
+    <!--body-end-->
+</div>

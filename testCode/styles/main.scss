@@ -1,0 +1,101 @@
+@import "variables";
+
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.title{
+  margin: 10px;
+  color: $color-text-primary;
+  text-decoration: none;
+}
+
+.title:hover{
+  text-decoration: none;
+}
+
+.title:focus{
+  text-decoration: none;
+}
+
+.main-content{
+  width: $content-width;
+  margin: 0 auto;
+}
+
+.container{
+  width: 100%;
+}
+
+.wrapper {
+
+}
+
+.wrapper div {
+
+}
+#left {
+  background-color: white;
+  float:left;
+  margin-right:20px;
+  width:70%;
+}
+#right {
+  background-color: white;
+  overflow:hidden;
+  margin:10px;
+  min-height:170px;
+}
+
+@media screen and (max-width: 1000px) {
+  #left {
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+    border-bottom:2px solid #000;
+  }
+}
+
+
+.form-group {
+  margin-bottom: 0px;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+
+.save-button {
+  margin: 10px 0px;
+}
+
+.dropdown-margin{
+  margin: 10px 0px;
+}
+
+//caret
+.caret{
+  float: right;
+}
+
+.caret.caret-up {
+  border-top-width: 0;
+  border-bottom: 4px solid #000;
+}
+
+.search-box{
+  display: inline-block;
+  float: right;
+}
+
+.panel-heading-caret{
+  cursor:pointer;
+}
+
+.success {
+  position:absolute;
+  text-align: center;
+}

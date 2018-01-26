@@ -1,0 +1,53 @@
+<div class="panel panel-default" ng-controller="PeopleCtrl">
+
+    <!--heading-->
+    <div class="panel-heading">
+        <h2> People at {{company}}
+            <div class="search-box">
+                <input class="form-control" placeholder="Search.." ng-model="search" type="text" />
+            </div>
+        </h2>
+    </div>
+    <!--heading-end-->
+    <!--body-->
+    <div class="panel-body">
+
+        <!--<table class="table table-striped">-->
+            <!--<tbody>-->
+                <!--<tr ng-repeat="person in people">-->
+                    <!--<td><a class="text-center" href="#!person/{{person._id}}"> {{person.name}}</a></td>-->
+                    <!--<td><button type="button" ng-click="deletePerson(person._id)" class="btn btn-danger pull-right">delete</button></td>-->
+                <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table>-->
+
+        <!--repeat the following for different people in the company-->
+        <div ng-repeat="person in people | filter:search">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-caret" ng-click="showCompany = !showCompany">
+                    <h2>
+                        {{person.name}}
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button type="button" ng-click="editPerson(person._id)" class="btn btn-default">Edit</button>
+                                <button type="button" ng-click="deletePerson(person._id)" class="btn btn-danger">Delete</button>
+                            </div>
+                            <span class="caret" ng-class="showCompany ? 'caret-up' : ''"></span>
+                        </div>
+                    </h2>
+                </div>
+                <div class="panel-body" ng-if="showCompany">
+                    <div>Name: {{person.name}}</div>
+                    <div>Address: {{person.email}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!--if there are no people in the company-->
+        <div ng-if="people.length == 0">
+            There are no people in this company.
+        </div>
+    </div>
+    <!--body-end-->
+</div>
+
